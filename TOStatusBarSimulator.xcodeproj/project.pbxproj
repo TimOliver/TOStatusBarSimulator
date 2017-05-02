@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		226713811EB86AD600CAFCAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713801EB86AD600CAFCAA /* main.m */; };
-		226713841EB86AD600CAFCAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713831EB86AD600CAFCAA /* AppDelegate.m */; };
-		226713871EB86AD600CAFCAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713861EB86AD600CAFCAA /* ViewController.m */; };
-		2267138A1EB86AD600CAFCAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226713881EB86AD600CAFCAA /* Main.storyboard */; };
-		2267138C1EB86AD600CAFCAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2267138B1EB86AD600CAFCAA /* Assets.xcassets */; };
-		2267138F1EB86AD600CAFCAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2267138D1EB86AD600CAFCAA /* LaunchScreen.storyboard */; };
+		226713A01EB8DEE400CAFCAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713981EB8DEE400CAFCAA /* AppDelegate.m */; };
+		226713A11EB8DEE400CAFCAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226713991EB8DEE400CAFCAA /* Assets.xcassets */; };
+		226713A21EB8DEE400CAFCAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2267139A1EB8DEE400CAFCAA /* LaunchScreen.storyboard */; };
+		226713A31EB8DEE400CAFCAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2267139C1EB8DEE400CAFCAA /* Info.plist */; };
+		226713A41EB8DEE400CAFCAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2267139D1EB8DEE400CAFCAA /* main.m */; };
+		226713A51EB8DEE400CAFCAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2267139F1EB8DEE400CAFCAA /* ViewController.m */; };
+		226713A91EB8DF5C00CAFCAA /* TOStatusBarSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713A81EB8DF5C00CAFCAA /* TOStatusBarSimulator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2267137C1EB86AD600CAFCAA /* TOStatusBarSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOStatusBarSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		226713801EB86AD600CAFCAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		226713821EB86AD600CAFCAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		226713831EB86AD600CAFCAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		226713851EB86AD600CAFCAA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		226713861EB86AD600CAFCAA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		226713891EB86AD600CAFCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2267138B1EB86AD600CAFCAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2267138E1EB86AD600CAFCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		226713901EB86AD600CAFCAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		226713971EB8DEE400CAFCAA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		226713981EB8DEE400CAFCAA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		226713991EB8DEE400CAFCAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2267139B1EB8DEE400CAFCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2267139C1EB8DEE400CAFCAA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2267139D1EB8DEE400CAFCAA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2267139E1EB8DEE400CAFCAA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2267139F1EB8DEE400CAFCAA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		226713A71EB8DF5C00CAFCAA /* TOStatusBarSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOStatusBarSimulator.h; sourceTree = "<group>"; };
+		226713A81EB8DF5C00CAFCAA /* TOStatusBarSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOStatusBarSimulator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,8 @@
 		226713731EB86AD500CAFCAA = {
 			isa = PBXGroup;
 			children = (
-				2267137E1EB86AD600CAFCAA /* TOStatusBarSimulator */,
+				226713A61EB8DEE900CAFCAA /* TOStatusBarSimulator */,
+				226713961EB8DEE400CAFCAA /* TOStatusBarSimulatorExample */,
 				2267137D1EB86AD600CAFCAA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,28 +58,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2267137E1EB86AD600CAFCAA /* TOStatusBarSimulator */ = {
+		226713961EB8DEE400CAFCAA /* TOStatusBarSimulatorExample */ = {
 			isa = PBXGroup;
 			children = (
-				226713821EB86AD600CAFCAA /* AppDelegate.h */,
-				226713831EB86AD600CAFCAA /* AppDelegate.m */,
-				226713851EB86AD600CAFCAA /* ViewController.h */,
-				226713861EB86AD600CAFCAA /* ViewController.m */,
-				226713881EB86AD600CAFCAA /* Main.storyboard */,
-				2267138B1EB86AD600CAFCAA /* Assets.xcassets */,
-				2267138D1EB86AD600CAFCAA /* LaunchScreen.storyboard */,
-				226713901EB86AD600CAFCAA /* Info.plist */,
-				2267137F1EB86AD600CAFCAA /* Supporting Files */,
+				226713971EB8DEE400CAFCAA /* AppDelegate.h */,
+				226713981EB8DEE400CAFCAA /* AppDelegate.m */,
+				226713991EB8DEE400CAFCAA /* Assets.xcassets */,
+				2267139A1EB8DEE400CAFCAA /* LaunchScreen.storyboard */,
+				2267139C1EB8DEE400CAFCAA /* Info.plist */,
+				2267139D1EB8DEE400CAFCAA /* main.m */,
+				2267139E1EB8DEE400CAFCAA /* ViewController.h */,
+				2267139F1EB8DEE400CAFCAA /* ViewController.m */,
 			);
-			path = TOStatusBarSimulator;
+			path = TOStatusBarSimulatorExample;
 			sourceTree = "<group>";
 		};
-		2267137F1EB86AD600CAFCAA /* Supporting Files */ = {
+		226713A61EB8DEE900CAFCAA /* TOStatusBarSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				226713801EB86AD600CAFCAA /* main.m */,
+				226713A71EB8DF5C00CAFCAA /* TOStatusBarSimulator.h */,
+				226713A81EB8DF5C00CAFCAA /* TOStatusBarSimulator.m */,
 			);
-			name = "Supporting Files";
+			path = TOStatusBarSimulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2267138F1EB86AD600CAFCAA /* LaunchScreen.storyboard in Resources */,
-				2267138C1EB86AD600CAFCAA /* Assets.xcassets in Resources */,
-				2267138A1EB86AD600CAFCAA /* Main.storyboard in Resources */,
+				226713A11EB8DEE400CAFCAA /* Assets.xcassets in Resources */,
+				226713A21EB8DEE400CAFCAA /* LaunchScreen.storyboard in Resources */,
+				226713A31EB8DEE400CAFCAA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,27 +154,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226713871EB86AD600CAFCAA /* ViewController.m in Sources */,
-				226713841EB86AD600CAFCAA /* AppDelegate.m in Sources */,
-				226713811EB86AD600CAFCAA /* main.m in Sources */,
+				226713A51EB8DEE400CAFCAA /* ViewController.m in Sources */,
+				226713A91EB8DF5C00CAFCAA /* TOStatusBarSimulator.m in Sources */,
+				226713A41EB8DEE400CAFCAA /* main.m in Sources */,
+				226713A01EB8DEE400CAFCAA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		226713881EB86AD600CAFCAA /* Main.storyboard */ = {
+		2267139A1EB8DEE400CAFCAA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				226713891EB86AD600CAFCAA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2267138D1EB86AD600CAFCAA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2267138E1EB86AD600CAFCAA /* Base */,
+				2267139B1EB8DEE400CAFCAA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -276,7 +272,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LF3GMKZAB;
-				INFOPLIST_FILE = TOStatusBarSimulator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TOStatusBarSimulatorExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.timoliver.TOStatusBarSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,7 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LF3GMKZAB;
-				INFOPLIST_FILE = TOStatusBarSimulator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TOStatusBarSimulatorExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.timoliver.TOStatusBarSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -314,6 +310,7 @@
 				226713951EB86AD600CAFCAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
