@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DarkViewController.h"
+#import "TOStatusBarSimulator.h"
 
 @interface ViewController ()
 
@@ -17,13 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+
+    UIButton *toggleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    toggleButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    [toggleButton setTitle:@"Show Dark View" forState:UIControlStateNormal];
+    [toggleButton sizeToFit];
+    toggleButton.center = self.view.center;
+    [toggleButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:toggleButton];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)buttonTapped:(id)sender
+{
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[DarkViewController new]];
+    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
-
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "TOStatusBarSimulator.h"
+#import "TOStatusBarView.h"
 #import <UIKit/UIKit.h>
 
 static UIView *_systemStatusBar;
-
+static TOStatusBarView *_statusBar;
 
 @implementation TOStatusBarSimulator
 
@@ -19,14 +20,12 @@ static UIView *_systemStatusBar;
     if (_systemStatusBar) { return; }
     _systemStatusBar = [[self class] systemStatusBar];
 
-    _systemStatusBar.alpha = 0.0f;
+    [_systemStatusBar removeFromSuperview];
 
     UIWindow *statusBarWindow = [[self class] statusBarWindow];
 
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 0, statusBarWindow.frame.size.width, 20)];
-    test.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    test.backgroundColor = [UIColor redColor];
-    [[[self class] statusBarWindow] addSubview:test];
+    _statusBar = [[TOStatusBarView alloc] initWithFrame:(CGRect){0,0,statusBarWindow.frame.size.width, 20.0f}];
+    [statusBarWindow addSubview:_statusBar];
 }
 
 + (UIWindow *)statusBarWindow
@@ -36,6 +35,8 @@ static UIView *_systemStatusBar;
 
 + (UIView *)systemStatusBar
 {
+    if (_systemStatusBar) { return _systemStatusBar; }
+
     UIWindow *statusBarWindow = [[self class] statusBarWindow];
     if (statusBarWindow == nil) { return nil; }
 
