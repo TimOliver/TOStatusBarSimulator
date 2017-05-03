@@ -16,6 +16,8 @@
 		226713AF1EB9028600CAFCAA /* DarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713AE1EB9028600CAFCAA /* DarkViewController.m */; };
 		226713CB1EB9723700CAFCAA /* TOStatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713CA1EB9723700CAFCAA /* TOStatusBarView.m */; };
 		226713CD1EB975EA00CAFCAA /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226713CC1EB975EA00CAFCAA /* Icons.xcassets */; };
+		226713D01EB9B73E00CAFCAA /* TOStatusBarProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */; };
+		226713D31EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713D21EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		226713C91EB9723700CAFCAA /* TOStatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOStatusBarView.h; sourceTree = "<group>"; };
 		226713CA1EB9723700CAFCAA /* TOStatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOStatusBarView.m; sourceTree = "<group>"; };
 		226713CC1EB975EA00CAFCAA /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		226713CE1EB9B73E00CAFCAA /* TOStatusBarProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOStatusBarProxy.h; sourceTree = "<group>"; };
+		226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOStatusBarProxy.m; sourceTree = "<group>"; };
+		226713D11EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+CaptureAnimation.h"; sourceTree = "<group>"; };
+		226713D21EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+CaptureAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +91,12 @@
 			children = (
 				226713A71EB8DF5C00CAFCAA /* TOStatusBarSimulator.h */,
 				226713A81EB8DF5C00CAFCAA /* TOStatusBarSimulator.m */,
+				226713CE1EB9B73E00CAFCAA /* TOStatusBarProxy.h */,
+				226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */,
 				226713C91EB9723700CAFCAA /* TOStatusBarView.h */,
 				226713CA1EB9723700CAFCAA /* TOStatusBarView.m */,
+				226713D11EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.h */,
+				226713D21EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m */,
 				226713CC1EB975EA00CAFCAA /* Icons.xcassets */,
 			);
 			path = TOStatusBarSimulator;
@@ -165,11 +175,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				226713AF1EB9028600CAFCAA /* DarkViewController.m in Sources */,
+				226713D01EB9B73E00CAFCAA /* TOStatusBarProxy.m in Sources */,
 				226713A51EB8DEE400CAFCAA /* ViewController.m in Sources */,
 				226713CB1EB9723700CAFCAA /* TOStatusBarView.m in Sources */,
 				226713A91EB8DF5C00CAFCAA /* TOStatusBarSimulator.m in Sources */,
 				226713A41EB8DEE400CAFCAA /* main.m in Sources */,
 				226713A01EB8DEE400CAFCAA /* AppDelegate.m in Sources */,
+				226713D31EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

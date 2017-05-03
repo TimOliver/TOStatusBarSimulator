@@ -1,5 +1,5 @@
 //
-//  TOStatusBarSimulator.h
+//  TOStatusBarProxy.h
 //
 //  Copyright 2017 Timothy Oliver. All rights reserved.
 //
@@ -24,18 +24,8 @@
 
 @class UIView;
 
-@interface TOStatusBarSimulator : NSObject
+@interface TOStatusBarProxy : NSObject
 
-/* Replaces the system status bar with a simulated one */
-+ (void)show;
-
-/* Clears the simulated status bar and restores the proper one. */
-+ (void)hide;
-
-/* Default is hidden on iPhone, "iPad" on iPad, and "iPod" on iPod touch. */
-+ (void)setCarrierString:(NSString *)carrierString;
-
-/* Signal strength is normally only shown on iPhone, but can be shown on others. */
-+ (void)alwaysShowSignalStrength:(BOOL)showSignalStrength;
+- (instancetype)initWithSystemStatusBar:(UIView *)systemBar simulatedStatusBar:(UIView *)simulatedBar;
 
 @end

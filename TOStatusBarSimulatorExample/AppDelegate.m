@@ -26,6 +26,7 @@
     [self.window makeKeyAndVisible];
 
     [TOStatusBarSimulator show];
+    [TOStatusBarSimulator setCarrierString:@"🤣"];
 
     return YES;
 }

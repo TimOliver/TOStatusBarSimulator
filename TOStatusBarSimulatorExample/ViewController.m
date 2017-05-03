@@ -19,12 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"TOStatusBarSimulator";
 
     UIButton *toggleButton = [UIButton buttonWithType:UIButtonTypeSystem];
     toggleButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [toggleButton setTitle:@"Show Dark View" forState:UIControlStateNormal];
     [toggleButton sizeToFit];
     toggleButton.center = self.view.center;
+    toggleButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin |
+                                    UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
     [toggleButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:toggleButton];
 }
