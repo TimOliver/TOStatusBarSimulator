@@ -35,6 +35,9 @@
 /* Default is hidden on iPhone, "iPad" on iPad, and "iPod" on iPod touch. */
 + (void)setCarrierString:(NSString *)carrierString;
 
+/* Shows the actual system time. When false, the clock only always displays '9:41 AM'. */
++ (void)showActualTime:(BOOL)actualTime;
+
 /* Signal strength is normally only shown on iPhone, but can be shown on others. */
 + (void)alwaysShowSignalStrength:(BOOL)showSignalStrength;
 

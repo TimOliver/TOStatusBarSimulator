@@ -23,13 +23,16 @@
 #import "TOStatusBarSimulator.h"
 #import "TOStatusBarView.h"
 #import "TOStatusBarProxy.h"
+#import "TOStatusBarTimer.h"
 #import <UIKit/UIKit.h>
 
 static UIView *_systemStatusBar = nil;
 static TOStatusBarView *_statusBar = nil;
 static TOStatusBarProxy *_statusBarProxy = nil;
+static TOStatusBarTimer *_statusBarTimer = nil;
 static NSString *_carrierString = nil;
 static BOOL _alwaysShowSignalStrength = NO;
+static BOOL _showActualTime = NO;
 
 @implementation TOStatusBarSimulator
 
@@ -53,6 +56,8 @@ static BOOL _alwaysShowSignalStrength = NO;
     UIColor *tintColor = style == UIStatusBarStyleLightContent ? [UIColor whiteColor] : [UIColor blackColor];
     [_statusBar setTintColor:tintColor];
     _statusBar.alpha = _systemStatusBar.alpha;
+
+    [[self class] startTimerForClock:_showActualTime];
 }
 
 + (void)hide
@@ -66,6 +71,79 @@ static BOOL _alwaysShowSignalStrength = NO;
     [statusBarWindow addSubview:_systemStatusBar];
     _systemStatusBar = nil;
 }
+
+#pragma mark - Public Configuration -
+
++ (void)alwaysShowSignalStrength:(BOOL)showSignalStrength
+{
+    _alwaysShowSignalStrength = showSignalStrength;
+    _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
+}
+
++ (void)setCarrierString:(NSString *)carrierString
+{
+    _carrierString = carrierString;
+    _statusBar.carrierString = carrierString ?: [[self class] defaultCarrierString];
+}
+
++ (void)showActualTime:(BOOL)actualTime
+{
+    if (actualTime == _showActualTime) { return; }
+    _showActualTime = actualTime;
+    [[self class] startTimerForClock:actualTime];
+}
+
+#pragma mark - Time Handling -
++ (void)startTimerForClock:(BOOL)start
+{
+    if (_statusBar == nil) {
+        return;
+    }
+
+    if (start) {
+        _statusBarTimer = [[TOStatusBarTimer alloc] init];
+        _statusBarTimer.timeChangedHandler = ^(NSString *newTime) { _statusBar.timeString = newTime; };
+        [_statusBarTimer start];
+    }
+    else {
+        [_statusBarTimer stop];
+        _statusBar.timeString = nil;
+        _statusBarTimer = nil;
+    }
+}
+
+#pragma mark - Default States -
+
++ (NSString *)defaultCarrierString
+{
+    // iPad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return @"iPad";
+    }
+
+    // iPod touch
+    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
+        return @"iPod";
+    }
+
+    // Nothing for iPhone
+    return nil;
+}
+
++ (BOOL)signalStrengthVisibleByDefault
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return NO;
+    }
+
+    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
+        return NO;
+    }
+
+    return YES;
+}
+
+#pragma mark - Status Bar Introspection -
 
 + (UIWindow *)statusBarWindow
 {
@@ -86,47 +164,6 @@ static BOOL _alwaysShowSignalStrength = NO;
     }
 
     return nil;
-}
-
-+ (NSString *)defaultCarrierString
-{
-    // iPad
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return @"iPad";
-    }
-
-    // iPod touch
-    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
-        return @"iPod";
-    }
-
-    // Nothing for iPhone
-    return nil;
-}
-
-+ (void)alwaysShowSignalStrength:(BOOL)showSignalStrength
-{
-    _alwaysShowSignalStrength = showSignalStrength;
-    _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
-}
-
-+ (BOOL)signalStrengthVisibleByDefault
-{
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return NO;
-    }
-
-    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
-        return NO;
-    }
-
-    return YES;
-}
-
-+ (void)setCarrierString:(NSString *)carrierString
-{
-    _carrierString = carrierString;
-    _statusBar.carrierString = carrierString ?: [[self class] defaultCarrierString];
 }
 
 @end

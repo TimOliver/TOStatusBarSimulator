@@ -1,5 +1,5 @@
 //
-//  TOStatusBarView.h
+//  TOStatusBarTimer.h
 //
 //  Copyright 2017 Timothy Oliver. All rights reserved.
 //
@@ -20,16 +20,14 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
+@interface TOStatusBarTimer : NSObject
 
+@property (nonatomic, readonly) NSString *currentTime;
+@property (nonatomic, copy) void (^timeChangedHandler)(NSString *);
 
-@interface TOStatusBarView : UIView
-
-@property (nonatomic, assign) BOOL showSignalStrength;
-@property (nonatomic, copy) NSString *carrierString;
-@property (nonatomic, copy) NSString *timeString;
-
-- (void)setTintColor:(UIColor *)tintColor animated:(BOOL)animated;
+- (void)start;
+- (void)stop;
 
 @end

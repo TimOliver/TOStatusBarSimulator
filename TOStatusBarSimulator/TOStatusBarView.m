@@ -147,6 +147,7 @@
 {
     [super layoutSubviews];
 
+    CGFloat pixelWidth = (1.0f / [UIScreen mainScreen].scale);
     CGRect frame = CGRectZero;
 
     CGFloat x = 6.5f;
@@ -159,7 +160,7 @@
         x += frame.size.width + 6.0f;
     }
 
-    if (self.carrierStringLabel) {
+    if (self.carrierStringLabel.text.length) {
         [self.carrierStringLabel sizeToFit];
         frame = self.carrierStringLabel.frame;
         frame.origin.x = x;
@@ -169,7 +170,7 @@
     }
 
     frame.origin.x = x;
-    frame.origin.y = 5.5f;
+    frame.origin.y = 4.5f;
     frame.size = self.wifiView.frame.size;
     self.wifiView.frame = frame;
 
@@ -181,8 +182,8 @@
     self.timeLabel.frame = frame;
 
     frame = self.batteryLevelView.frame;
-    frame.origin.x = CGRectGetWidth(self.frame) - (frame.size.width + 5.5f);
-    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
+    frame.origin.x = ceilf(CGRectGetWidth(self.frame) - (frame.size.width + 5.5f)) - pixelWidth;
+    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f) + pixelWidth;
     self.batteryLevelView.frame = frame;
 
     [self.batteryLevelLabel sizeToFit];
@@ -198,6 +199,33 @@
     _carrierString = carrierString;
     self.carrierStringLabel.text = _carrierString;
     [self setUpCarrierLabel];
+    [self setNeedsLayout];
+}
+
+- (void)setTimeString:(NSString *)timeString
+{
+    if (timeString == _timeString) { return; }
+    _timeString = [timeString copy];
+
+    self.timeLabel.text = _timeString.length > 0 ? _timeString : @"9:41 AM";
+}
+
+- (void)setShowSignalStrength:(BOOL)showSignalStrength
+{
+    if (showSignalStrength == _showSignalStrength) {
+        return;
+    }
+
+    _showSignalStrength = showSignalStrength;
+
+    if (_showSignalStrength) {
+        [self setUpSignalStrengthView];
+    }
+    else {
+        [self.signalStrengthView removeFromSuperview];
+        self.signalStrengthView = nil;
+    }
+
     [self setNeedsLayout];
 }
 

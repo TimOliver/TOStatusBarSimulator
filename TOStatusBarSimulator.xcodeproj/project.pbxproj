@@ -18,6 +18,7 @@
 		226713CD1EB975EA00CAFCAA /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226713CC1EB975EA00CAFCAA /* Icons.xcassets */; };
 		226713D01EB9B73E00CAFCAA /* TOStatusBarProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */; };
 		226713D31EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226713D21EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m */; };
+		22C7BA861EBA5F9A00C72CD3 /* TOStatusBarTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C7BA851EBA5F9A00C72CD3 /* TOStatusBarTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOStatusBarProxy.m; sourceTree = "<group>"; };
 		226713D11EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+CaptureAnimation.h"; sourceTree = "<group>"; };
 		226713D21EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+CaptureAnimation.m"; sourceTree = "<group>"; };
+		22C7BA841EBA5F9A00C72CD3 /* TOStatusBarTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOStatusBarTimer.h; sourceTree = "<group>"; };
+		22C7BA851EBA5F9A00C72CD3 /* TOStatusBarTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOStatusBarTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				226713A81EB8DF5C00CAFCAA /* TOStatusBarSimulator.m */,
 				226713CE1EB9B73E00CAFCAA /* TOStatusBarProxy.h */,
 				226713CF1EB9B73E00CAFCAA /* TOStatusBarProxy.m */,
+				22C7BA841EBA5F9A00C72CD3 /* TOStatusBarTimer.h */,
+				22C7BA851EBA5F9A00C72CD3 /* TOStatusBarTimer.m */,
 				226713C91EB9723700CAFCAA /* TOStatusBarView.h */,
 				226713CA1EB9723700CAFCAA /* TOStatusBarView.m */,
 				226713D11EB9BA6700CAFCAA /* UIApplication+CaptureAnimation.h */,
@@ -177,6 +182,7 @@
 				226713AF1EB9028600CAFCAA /* DarkViewController.m in Sources */,
 				226713D01EB9B73E00CAFCAA /* TOStatusBarProxy.m in Sources */,
 				226713A51EB8DEE400CAFCAA /* ViewController.m in Sources */,
+				22C7BA861EBA5F9A00C72CD3 /* TOStatusBarTimer.m in Sources */,
 				226713CB1EB9723700CAFCAA /* TOStatusBarView.m in Sources */,
 				226713A91EB8DF5C00CAFCAA /* TOStatusBarSimulator.m in Sources */,
 				226713A41EB8DEE400CAFCAA /* main.m in Sources */,
