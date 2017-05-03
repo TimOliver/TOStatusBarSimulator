@@ -196,6 +196,7 @@
 - (void)setCarrierString:(NSString *)carrierString
 {
     _carrierString = carrierString;
+    self.carrierStringLabel.text = _carrierString;
     [self setUpCarrierLabel];
     [self setNeedsLayout];
 }
