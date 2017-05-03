@@ -10,8 +10,10 @@
 #import "TOStatusBarView.h"
 #import <UIKit/UIKit.h>
 
-static UIView *_systemStatusBar;
-static TOStatusBarView *_statusBar;
+static UIView *_systemStatusBar = nil;
+static TOStatusBarView *_statusBar = nil;
+static NSString *_carrierString = nil;
+static BOOL _alwaysShowSignalStrength = NO;
 
 @implementation TOStatusBarSimulator
 
@@ -24,7 +26,9 @@ static TOStatusBarView *_statusBar;
 
     UIWindow *statusBarWindow = [[self class] statusBarWindow];
 
-    _statusBar = [[TOStatusBarView alloc] initWithFrame:(CGRect){0,0,statusBarWindow.frame.size.width, 20.0f}];
+    _statusBar = [[TOStatusBarView alloc] initWithFrame:(CGRect){0, 0, statusBarWindow.frame.size.width, 20.0f}];
+    _statusBar.carrierString = _carrierString ?: [[self class] defaultCarrierString];
+    _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
     [statusBarWindow addSubview:_statusBar];
 }
 
@@ -47,6 +51,47 @@ static TOStatusBarView *_statusBar;
     }
 
     return nil;
+}
+
++ (NSString *)defaultCarrierString
+{
+    // iPad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return @"iPad";
+    }
+
+    // iPod touch
+    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
+        return @"iPod";
+    }
+
+    // Nothing for iPhone
+    return nil;
+}
+
++ (void)alwaysShowSignalStrength:(BOOL)showSignalStrength
+{
+    _alwaysShowSignalStrength = showSignalStrength;
+    _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
+}
+
++ (BOOL)signalStrengthVisibleByDefault
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return NO;
+    }
+
+    if ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound) {
+        return NO;
+    }
+
+    return YES;
+}
+
++ (void)setCarrierString:(NSString *)carrierString
+{
+    _carrierString = carrierString;
+    _statusBar.carrierString = carrierString ?: [[self class] defaultCarrierString];
 }
 
 @end

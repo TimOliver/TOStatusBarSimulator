@@ -41,6 +41,7 @@
 
     UIImage *signalStrengthImage = [[UIImage imageNamed:@"SignalStrength"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.signalStrengthView = [[UIImageView alloc] initWithImage:signalStrengthImage];
+    self.signalStrengthView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.signalStrengthView];
 }
 
@@ -49,7 +50,7 @@
     if (self.carrierString.length == 0 || self.carrierStringLabel) { return; }
 
     self.carrierStringLabel = [[UILabel alloc] init];
-    self.carrierStringLabel.font = [UIFont systemFontOfSize:11.0f];
+    self.carrierStringLabel.font = [UIFont systemFontOfSize:12.0f];
     self.carrierStringLabel.textColor = self.tintColor ? self.tintColor : [UIColor blackColor];
     self.carrierStringLabel.text = self.carrierString;
     [self addSubview:self.carrierStringLabel];
@@ -61,6 +62,7 @@
 
     UIImage *wifiIcon = [[UIImage imageNamed:@"WiFi"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.wifiView = [[UIImageView alloc] initWithImage:wifiIcon];
+    self.wifiView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.wifiView];
 }
 
@@ -94,6 +96,7 @@
 
     UIImage *batteryImage = [[UIImage imageNamed:@"Battery"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.batteryLevelView = [[UIImageView alloc] initWithImage:batteryImage];
+    self.batteryLevelView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.batteryLevelView];
 }
 
@@ -132,18 +135,27 @@
 
     CGRect frame = CGRectZero;
 
-    CGFloat x = 3.0f;
+    CGFloat x = 6.5f;
     if (self.signalStrengthView) {
         frame.size = self.signalStrengthView.frame.size;
         frame.origin.x = x;
-        frame.origin.y = 10.0f - (frame.size.height * 0.5f);
+        frame.origin.y = floorf(10.0f - (frame.size.height * 0.5f));
         self.signalStrengthView.frame = frame;
 
-        x += frame.size.width + 3.0f;
+        x += frame.size.width + 6.0f;
+    }
+
+    if (self.carrierStringLabel) {
+        [self.carrierStringLabel sizeToFit];
+        frame = self.carrierStringLabel.frame;
+        frame.origin.x = x;
+        frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
+        self.carrierStringLabel.frame = frame;
+        x = CGRectGetMaxX(frame) + 5.0f;
     }
 
     frame.origin.x = x;
-    frame.origin.y = 6.0f;
+    frame.origin.y = 5.5f;
     frame.size = self.wifiView.frame.size;
     self.wifiView.frame = frame;
 
@@ -153,6 +165,17 @@
     frame.origin.y = 0.0f;
     frame.origin.x = ceilf((self.frame.size.width - frame.size.width) * 0.5f) + 2.0f;
     self.timeLabel.frame = frame;
+
+    frame = self.batteryLevelView.frame;
+    frame.origin.x = CGRectGetWidth(self.frame) - (frame.size.width + 5.5f);
+    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
+    self.batteryLevelView.frame = frame;
+
+    [self.batteryLevelLabel sizeToFit];
+    frame = self.batteryLevelLabel.frame;
+    frame.origin.x = CGRectGetMinX(self.batteryLevelView.frame) - (frame.size.width + 3.0f);
+    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
+    self.batteryLevelLabel.frame = frame;
 }
 
 @end
