@@ -55,7 +55,6 @@
 
     UIImage *signalStrengthImage = [[UIImage imageNamed:@"SignalStrength"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.signalStrengthView = [[UIImageView alloc] initWithImage:signalStrengthImage];
-    self.signalStrengthView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.signalStrengthView];
 }
 
@@ -76,7 +75,6 @@
 
     UIImage *wifiIcon = [[UIImage imageNamed:@"WiFi"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.wifiView = [[UIImageView alloc] initWithImage:wifiIcon];
-    self.wifiView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.wifiView];
 }
 
@@ -147,7 +145,6 @@
 {
     [super layoutSubviews];
 
-    CGFloat pixelWidth = (1.0f / [UIScreen mainScreen].scale);
     CGRect frame = CGRectZero;
 
     CGFloat x = 6.5f;
@@ -170,7 +167,7 @@
     }
 
     frame.origin.x = x;
-    frame.origin.y = 4.5f;
+    frame.origin.y = 5.0f;
     frame.size = self.wifiView.frame.size;
     self.wifiView.frame = frame;
 
@@ -182,8 +179,8 @@
     self.timeLabel.frame = frame;
 
     frame = self.batteryLevelView.frame;
-    frame.origin.x = ceilf(CGRectGetWidth(self.frame) - (frame.size.width + 5.5f)) - pixelWidth;
-    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f) + pixelWidth;
+    frame.origin.x = ceilf(CGRectGetWidth(self.frame) - (frame.size.width + 5.5f));
+    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
     self.batteryLevelView.frame = frame;
 
     [self.batteryLevelLabel sizeToFit];
