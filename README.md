@@ -1,17 +1,23 @@
 # TOStatusBarSimulator
 > Replaces the iOS system status bar with a configurable version that can be used for nicer looking screen captures/recordings of your app!
 
+<p align="center">
 <img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/screenshot.jpg" width="582" height="215" style="margin: 0 auto;" />
+</p>
 
 The system status bar is a very iconic part of iOS, visible in the vast majority of screenshots taken from the platform.
 
 When it comes to marketing screenshots, Apple have a very strict design policy on what the status bar looks like. Full signal strength, WiFi icon, "9:41AM" and full battery:
 
+<p align="center">
 <img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/status-bar-apple-standard.jpg" width="620" height="30" style="margin: 0 auto;" />
+</p>
 
 Unfortunately, the vast majority of apps on the App Store usually have some flavor of the following:
 
+<p align="center">
 <img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/status-bar-comparison.jpg" width="620" height="92" style="margin: 0 auto;" />
+</p>
 
 1. Taken on a real device, showing the user's telco name, an arbitrary time, any number of icons, and a half-empty battery.
 2. Taken straight from the iOS Simulator, with the 'Carrier' string and everything.
