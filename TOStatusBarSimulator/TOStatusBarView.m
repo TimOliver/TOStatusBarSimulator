@@ -53,7 +53,7 @@
 {
     if (self.signalStrengthView || !self.showSignalStrength) { return; }
 
-    UIImage *signalStrengthImage = [[UIImage imageNamed:@"SignalStrength"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *signalStrengthImage = [[self imageFromBundleNamed:@"SignalStrength"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.signalStrengthView = [[UIImageView alloc] initWithImage:signalStrengthImage];
     [self addSubview:self.signalStrengthView];
 }
@@ -73,7 +73,7 @@
 {
     if (self.wifiView) { return; }
 
-    UIImage *wifiIcon = [[UIImage imageNamed:@"WiFi"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *wifiIcon = [[self imageFromBundleNamed:@"WiFi"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.wifiView = [[UIImageView alloc] initWithImage:wifiIcon];
     [self addSubview:self.wifiView];
 }
@@ -106,7 +106,7 @@
 {
     if (self.batteryLevelView) { return; }
 
-    UIImage *batteryImage = [[UIImage imageNamed:@"Battery"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *batteryImage = [[self imageFromBundleNamed:@"Battery"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.batteryLevelView = [[UIImageView alloc] initWithImage:batteryImage];
     self.batteryLevelView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.batteryLevelView];
@@ -154,7 +154,7 @@
         frame.origin.y = floorf(10.0f - (frame.size.height * 0.5f));
         self.signalStrengthView.frame = frame;
 
-        x += frame.size.width + 6.0f;
+        x += frame.size.width + 3.0f;
     }
 
     if (self.carrierStringLabel.text.length) {
@@ -163,7 +163,7 @@
         frame.origin.x = x;
         frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
         self.carrierStringLabel.frame = frame;
-        x = CGRectGetMaxX(frame) + 5.0f;
+        x = CGRectGetMaxX(frame) + 3.0f;
     }
 
     frame.origin.x = x;
@@ -224,6 +224,12 @@
     }
 
     [self setNeedsLayout];
+}
+
+- (UIImage *)imageFromBundleNamed:(NSString *)name
+{
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
 }
 
 @end
