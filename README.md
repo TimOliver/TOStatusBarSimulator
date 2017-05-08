@@ -53,7 +53,7 @@ Drag the folder `TOStatusBarSimulator` into your Xcode project. Make sure `Copy 
 
 Be sure to remove the library from your project when you're ready to ship to avoid any risk of getting rejected by Apple.
 
-## Usage
+# Usage
 `TOStatusBarSimulator` is controlled via issuing commands through a set of class methods. These can be called at any point in your app's execution:
 
 ```objc
