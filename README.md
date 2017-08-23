@@ -7,7 +7,7 @@
 
 The system status bar is a very iconic part of iOS, visible in the vast majority of screenshots taken from the platform.
 
-When it comes to marketing screenshots, Apple have a very strict design policy on what the status bar looks like. Full signal strength, WiFi icon, "9:41AM" and full battery:
+When it comes to marketing screenshots, Apple have a very strict branding policy on what the status bar looks like. Full signal strength, WiFi icon, "9:41AM" and full battery:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/status-bar-apple-standard.jpg" width="620" height="30" style="margin: 0 auto;" />
