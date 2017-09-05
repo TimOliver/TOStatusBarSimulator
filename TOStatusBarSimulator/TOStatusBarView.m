@@ -156,10 +156,7 @@
 {
     [super layoutSubviews];
 
-    BOOL newLayout = NO;
-    if (@available(iOS 11.0, *)) { newLayout = YES; }
-
-    CGFloat retinaSize = 1.0f / [[UIScreen mainScreen] scale];
+    CGFloat retinaPixelSize = 1.0f / [[UIScreen mainScreen] scale];
 
     CGRect frame = CGRectZero;
 
@@ -167,22 +164,27 @@
     if (self.signalStrengthView) {
         frame.size = self.signalStrengthView.frame.size;
         frame.origin.x = x;
-        frame.origin.y = floorf(10.0f - (frame.size.height * 0.5f));
+        frame.origin.y = floorf(10.0f - (frame.size.height * 0.5f)) + (self.legacyDesign ? retinaPixelSize : 0.0f);
         self.signalStrengthView.frame = frame;
 
-        x += frame.size.width + 3.0f;
+        x += frame.size.width;
     }
 
     if (self.carrierStringLabel.text.length) {
+        x += 3.0f + (!self.legacyDesign ? retinaPixelSize : 0.0f);
+
         [self.carrierStringLabel sizeToFit];
         frame = self.carrierStringLabel.frame;
         frame.origin.x = x;
         frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
         self.carrierStringLabel.frame = frame;
-        x = CGRectGetMaxX(frame) + (newLayout ? 6.0f : 3.0f);
+        x = CGRectGetMaxX(frame) + (5.0f - (self.legacyDesign ? retinaPixelSize : 0.0f));
+    }
+    else {
+        x += (self.legacyDesign ? 7.0f : 8.0f) + retinaPixelSize;
     }
 
-    frame.origin.x = x + 0.0f;
+    frame.origin.x = x;
     frame.origin.y = 5.0f;
     frame.size = self.wifiView.frame.size;
     self.wifiView.frame = frame;
@@ -196,7 +198,7 @@
 
     frame = self.batteryLevelView.frame;
     frame.origin.x = ceilf(CGRectGetWidth(self.frame) - (frame.size.width + 5.5f));
-    frame.origin.y = floorf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f) + retinaSize;
+    frame.origin.y = floorf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f) + retinaPixelSize;
     self.batteryLevelView.frame = frame;
 
     [self.batteryLevelLabel sizeToFit];

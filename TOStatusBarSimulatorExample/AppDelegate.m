@@ -25,6 +25,7 @@
     self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
 
+    [TOStatusBarSimulator setCarrierString:@"iPhone"];
     [TOStatusBarSimulator show];
 
     return YES;
