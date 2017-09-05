@@ -24,6 +24,8 @@
 
 @interface TOStatusBarView ()
 
+@property (nonatomic, readonly) BOOL legacyDesign; //RIP in peace iOS 7 style icons
+
 @property (nonatomic, strong) UIImageView *signalStrengthView;
 @property (nonatomic, strong) UILabel *carrierStringLabel;
 @property (nonatomic, strong) UIImageView *wifiView;
@@ -53,7 +55,10 @@
 {
     if (self.signalStrengthView || !self.showSignalStrength) { return; }
 
-    UIImage *signalStrengthImage = [[self imageFromBundleNamed:@"SignalStrength"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    NSString *signalStrengthImageName = @"SignalStrength-";
+    signalStrengthImageName = [signalStrengthImageName stringByAppendingString:self.legacyDesign ? @"10" : @"11"];
+
+    UIImage *signalStrengthImage = [[self imageFromBundleNamed:signalStrengthImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.signalStrengthView = [[UIImageView alloc] initWithImage:signalStrengthImage];
     [self addSubview:self.signalStrengthView];
 }
@@ -73,7 +78,10 @@
 {
     if (self.wifiView) { return; }
 
-    UIImage *wifiIcon = [[self imageFromBundleNamed:@"WiFi"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    NSString *wifiImageName = @"WiFi-";
+    wifiImageName = [wifiImageName stringByAppendingString:self.legacyDesign ? @"10" : @"11"];
+
+    UIImage *wifiIcon = [[self imageFromBundleNamed:wifiImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.wifiView = [[UIImageView alloc] initWithImage:wifiIcon];
     [self addSubview:self.wifiView];
 }
@@ -106,7 +114,10 @@
 {
     if (self.batteryLevelView) { return; }
 
-    UIImage *batteryImage = [[self imageFromBundleNamed:@"Battery"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    NSString *batteryImageName = @"Battery-";
+    batteryImageName = [batteryImageName stringByAppendingString:self.legacyDesign ? @"10" : @"11"];
+
+    UIImage *batteryImage = [[self imageFromBundleNamed:batteryImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.batteryLevelView = [[UIImageView alloc] initWithImage:batteryImage];
     self.batteryLevelView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.batteryLevelView];
@@ -145,9 +156,14 @@
 {
     [super layoutSubviews];
 
+    BOOL newLayout = NO;
+    if (@available(iOS 11.0, *)) { newLayout = YES; }
+
+    CGFloat retinaSize = 1.0f / [[UIScreen mainScreen] scale];
+
     CGRect frame = CGRectZero;
 
-    CGFloat x = 6.5f;
+    CGFloat x = 6.0f;
     if (self.signalStrengthView) {
         frame.size = self.signalStrengthView.frame.size;
         frame.origin.x = x;
@@ -163,10 +179,10 @@
         frame.origin.x = x;
         frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
         self.carrierStringLabel.frame = frame;
-        x = CGRectGetMaxX(frame) + 3.0f;
+        x = CGRectGetMaxX(frame) + (newLayout ? 6.0f : 3.0f);
     }
 
-    frame.origin.x = x;
+    frame.origin.x = x + 0.0f;
     frame.origin.y = 5.0f;
     frame.size = self.wifiView.frame.size;
     self.wifiView.frame = frame;
@@ -180,7 +196,7 @@
 
     frame = self.batteryLevelView.frame;
     frame.origin.x = ceilf(CGRectGetWidth(self.frame) - (frame.size.width + 5.5f));
-    frame.origin.y = ceilf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f);
+    frame.origin.y = floorf((CGRectGetHeight(self.frame) - frame.size.height) * 0.5f) + retinaSize;
     self.batteryLevelView.frame = frame;
 
     [self.batteryLevelLabel sizeToFit];
@@ -230,6 +246,12 @@
 {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
+}
+
+- (BOOL)legacyDesign
+{
+    if (@available(iOS 11.0, *)) { return NO; }
+    return YES;
 }
 
 @end
