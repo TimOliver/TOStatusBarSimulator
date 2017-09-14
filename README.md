@@ -2,7 +2,7 @@
 > Replaces the iOS system status bar with a configurable version that can be used for nicer looking screen captures/recordings of your app!
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/screenshot.jpg" width="496" style="margin: 0 auto;" />
+<img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/screenshot.jpg" width="885" style="margin: 0 auto;" />
 </p>
 
 The system status bar is a very iconic part of iOS, visible in the vast majority of screenshots taken from the platform.
