@@ -21,10 +21,9 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "TOStatusBarProxy.h"
 
-
-
-@interface TOStatusBarView : UIView
+@interface TOStatusBarView : UIView <TOAnimatedTintColor>
 
 @property (nonatomic, assign) BOOL showSignalStrength;
 @property (nonatomic, copy) NSString *carrierString;

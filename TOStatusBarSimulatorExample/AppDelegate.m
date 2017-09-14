@@ -25,6 +25,8 @@
     self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
 
+    //[TOStatusBarSimulator showActualTime:YES];
+    //[TOStatusBarSimulator setCarrierString:@"😎"];
     [TOStatusBarSimulator show];
 
     return YES;

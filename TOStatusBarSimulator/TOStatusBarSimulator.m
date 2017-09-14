@@ -22,12 +22,14 @@
 
 #import "TOStatusBarSimulator.h"
 #import "TOStatusBarView.h"
+#import "TOModernStatusBarView.h"
 #import "TOStatusBarProxy.h"
 #import "TOStatusBarTimer.h"
 #import <UIKit/UIKit.h>
 
 static UIView *_systemStatusBar = nil;
 static TOStatusBarView *_statusBar = nil;
+static TOModernStatusBarView *_modernStatusBar = nil;
 static TOStatusBarProxy *_statusBarProxy = nil;
 static TOStatusBarTimer *_statusBarTimer = nil;
 static NSString *_carrierString = nil;
@@ -39,23 +41,35 @@ static BOOL _showActualTime = NO;
 + (void)show
 {
     if (_systemStatusBar) { return; }
-    _systemStatusBar = [[self class] systemStatusBar];
+
+    BOOL modern;
+    _systemStatusBar = [[self class] systemStatusBarModern:&modern];
 
     [_systemStatusBar removeFromSuperview];
 
     UIWindow *statusBarWindow = [[self class] statusBarWindow];
 
-    _statusBar = [[TOStatusBarView alloc] initWithFrame:(CGRect){0, 0, statusBarWindow.frame.size.width, 20.0f}];
-    _statusBar.carrierString = _carrierString ?: [[self class] defaultCarrierString];
-    _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
-    [statusBarWindow addSubview:_statusBar];
-
-    _statusBarProxy = [[TOStatusBarProxy alloc] initWithSystemStatusBar:_systemStatusBar simulatedStatusBar:_statusBar];
-
     UIStatusBarStyle style = [[UIApplication sharedApplication] statusBarStyle];
     UIColor *tintColor = style == UIStatusBarStyleLightContent ? [UIColor whiteColor] : [UIColor blackColor];
-    [_statusBar setTintColor:tintColor];
-    _statusBar.alpha = _systemStatusBar.alpha;
+
+    if (!modern) {
+        _statusBar = [[TOStatusBarView alloc] initWithFrame:(CGRect){0, 0, statusBarWindow.frame.size.width, 20.0f}];
+        _statusBar.carrierString = _carrierString ?: [[self class] defaultCarrierString];
+        _statusBar.showSignalStrength = (_alwaysShowSignalStrength || [[self class] signalStrengthVisibleByDefault]);
+        _statusBar.tintColor = tintColor;
+        _statusBar.alpha = _systemStatusBar.alpha;
+        [statusBarWindow addSubview:_statusBar];
+
+        _statusBarProxy = [[TOStatusBarProxy alloc] initWithSystemStatusBar:_systemStatusBar simulatedStatusBar:_statusBar];
+    }
+    else {
+        _modernStatusBar = [[TOModernStatusBarView alloc] initWithFrame:(CGRect){0, 0, statusBarWindow.frame.size.width, 44.0f}];
+        _modernStatusBar.tintColor = tintColor;
+        _modernStatusBar.alpha = _systemStatusBar.alpha;
+        [statusBarWindow addSubview:_modernStatusBar];
+
+        _statusBarProxy = [[TOStatusBarProxy alloc] initWithSystemStatusBar:_systemStatusBar simulatedStatusBar:_modernStatusBar];
+    }
 
     [[self class] startTimerForClock:_showActualTime];
 }
@@ -96,18 +110,23 @@ static BOOL _showActualTime = NO;
 #pragma mark - Time Handling -
 + (void)startTimerForClock:(BOOL)start
 {
-    if (_statusBar == nil) {
+    if (_statusBar == nil && _modernStatusBar == nil) {
         return;
     }
 
     if (start) {
         _statusBarTimer = [[TOStatusBarTimer alloc] init];
-        _statusBarTimer.timeChangedHandler = ^(NSString *newTime) { _statusBar.timeString = newTime; };
+        _statusBarTimer.hideAMPM = (_modernStatusBar != nil);
+        _statusBarTimer.timeChangedHandler = ^(NSString *newTime) {
+            _statusBar.timeString = newTime;
+            _modernStatusBar.timeString = newTime;
+        };
         [_statusBarTimer start];
     }
     else {
         [_statusBarTimer stop];
         _statusBar.timeString = nil;
+        _modernStatusBar.timeString = nil;
         _statusBarTimer = nil;
     }
 }
@@ -150,7 +169,7 @@ static BOOL _showActualTime = NO;
     return (UIWindow *)[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"];
 }
 
-+ (UIView *)systemStatusBar
++ (UIView *)systemStatusBarModern:(BOOL *)modern
 {
     if (_systemStatusBar) { return _systemStatusBar; }
 
@@ -159,6 +178,11 @@ static BOOL _showActualTime = NO;
 
     for (UIView *subview in statusBarWindow.subviews) {
         if ([NSStringFromClass([subview class]) isEqualToString:@"UIStatusBar"]) {
+            return subview;
+        }
+
+        if ([NSStringFromClass([subview class]) isEqualToString:@"UIStatusBar_Modern"]) {
+            *modern = YES;
             return subview;
         }
     }

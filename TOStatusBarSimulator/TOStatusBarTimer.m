@@ -80,4 +80,17 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:remainingSeconds target:self selector:@selector(timerTriggered) userInfo:nil repeats:NO];
 }
 
+- (void)setHideAMPM:(BOOL)hideAMPM
+{
+    if (_hideAMPM == hideAMPM) { return; }
+    _hideAMPM = hideAMPM;
+
+    if (_hideAMPM) {
+        _dateFormatter.dateFormat = @"h:mm";
+    }
+    else {
+        _dateFormatter.dateFormat = nil;
+    }
+}
+
 @end

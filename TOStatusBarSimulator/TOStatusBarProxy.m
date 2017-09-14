@@ -28,17 +28,17 @@
 @interface TOStatusBarProxy ()
 
 @property (nonatomic, strong) UIView *systemBar;
-@property (nonatomic, strong) TOStatusBarView *simulatedBar;
+@property (nonatomic, strong) UIView<TOAnimatedTintColor> *simulatedBar;
 
 @end
 
 @implementation TOStatusBarProxy
 
-- (instancetype)initWithSystemStatusBar:(UIView *)systemBar simulatedStatusBar:(UIView *)simulatedBar
+- (instancetype)initWithSystemStatusBar:(UIView *)systemBar simulatedStatusBar:(UIView<TOAnimatedTintColor> *)simulatedBar
 {
     if (self = [super init]) {
         _systemBar = systemBar;
-        _simulatedBar = (TOStatusBarView *)simulatedBar;
+        _simulatedBar = simulatedBar;
 
         [self attachNotifications];
     }

@@ -23,9 +23,16 @@
 #import <Foundation/Foundation.h>
 
 @class UIView;
+@class UIColor;
+
+@protocol TOAnimatedTintColor<NSObject>
+
+- (void)setTintColor:(UIColor *)color animated:(BOOL)animated;
+
+@end
 
 @interface TOStatusBarProxy : NSObject
 
-- (instancetype)initWithSystemStatusBar:(UIView *)systemBar simulatedStatusBar:(UIView *)simulatedBar;
+- (instancetype)initWithSystemStatusBar:(UIView *)systemBar simulatedStatusBar:(UIView<TOAnimatedTintColor> *)simulatedBar;
 
 @end

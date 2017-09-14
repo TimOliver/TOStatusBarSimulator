@@ -25,6 +25,7 @@
 @interface TOStatusBarTimer : NSObject
 
 @property (nonatomic, readonly) NSString *currentTime;
+@property (nonatomic, assign) BOOL hideAMPM;
 @property (nonatomic, copy) void (^timeChangedHandler)(NSString *);
 
 - (void)start;
