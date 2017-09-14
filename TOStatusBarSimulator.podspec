@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'TOStatusBarSimulator'
-  s.version  = '0.1.0'
+  s.version  = '0.2.0'
   s.license  =  { :type => 'MIT', :file => 'LICENSE' }
   s.summary  = 'Replaces the iOS system status bar with a configurable mockup for the purpose of marketing screenshots.'
   s.homepage = 'https://github.com/TimOliver/TOStatusBarSimulator'
