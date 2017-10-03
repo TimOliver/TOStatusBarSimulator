@@ -28,8 +28,10 @@
 
 - (void)setUp
 {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+
     // Right hand content
-    UIImage *modernImage = [[UIImage imageNamed:@"Modern-11"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *modernImage = [[UIImage imageNamed:@"Modern-11" inBundle:bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.rightImageView = [[UIImageView alloc] initWithImage:modernImage];
     [self addSubview:self.rightImageView];
 
