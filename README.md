@@ -75,4 +75,4 @@ This library is licensed under the MIT license. Please see [LICENSE](LICENSE) fo
 # Credits
 `TOStatusBarSimulator` was created by [Tim Oliver](http://twitter.com/TimOliverAU).
 
-iPhone 7 and iPhone X device mockups by [Pixeden](http://pixeden.com).
+iPhone 7 and iPhone X device mockups by [Pixeden](http://pixeden.com). ![analytics](https://ga-beacon.appspot.com/UA-5643664-16/TOStatusBarSimulator/README.md?pixel)
