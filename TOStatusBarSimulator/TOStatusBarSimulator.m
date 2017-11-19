@@ -178,6 +178,7 @@ static BOOL _showActualTime = NO;
 
     for (UIView *subview in statusBarWindow.subviews) {
         if ([NSStringFromClass([subview class]) isEqualToString:@"UIStatusBar"]) {
+            *modern = NO;
             return subview;
         }
 
