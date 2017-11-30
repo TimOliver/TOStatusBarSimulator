@@ -76,3 +76,8 @@ This library is licensed under the MIT license. Please see [LICENSE](LICENSE) fo
 `TOStatusBarSimulator` was created by [Tim Oliver](http://twitter.com/TimOliverAU).
 
 iPhone 7 and iPhone X device mockups by [Pixeden](http://pixeden.com). ![analytics](https://ga-beacon.appspot.com/UA-5643664-16/TOStatusBarSimulator/README.md?pixel)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/TimOliver/TOStatusBarSimulator/badge.svg?style=beer-square)](https://beerpay.io/TimOliver/TOStatusBarSimulator)  [![Beerpay](https://beerpay.io/TimOliver/TOStatusBarSimulator/make-wish.svg?style=flat-square)](https://beerpay.io/TimOliver/TOStatusBarSimulator?focus=wish)
