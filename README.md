@@ -5,6 +5,9 @@
 <img src="https://raw.githubusercontent.com/TimOliver/TOStatusBarSimulator/master/screenshot.jpg" width="885" style="margin: 0 auto;" />
 </p>
 
+[![Beerpay](https://beerpay.io/TimOliver/TOStatusBarSimulator/badge.svg?style=flat)](https://beerpay.io/TimOliver/TOStatusBarSimulator)
+[![PayPal](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M4RKULAVKV7K8)
+
 The system status bar is a very iconic part of iOS, visible in the vast majority of screenshots taken from the platform.
 
 When it comes to marketing screenshots, Apple have a very strict branding policy on what the status bar looks like. Full signal strength, WiFi icon, "9:41AM" and full battery:
@@ -76,8 +79,3 @@ This library is licensed under the MIT license. Please see [LICENSE](LICENSE) fo
 `TOStatusBarSimulator` was created by [Tim Oliver](http://twitter.com/TimOliverAU).
 
 iPhone 7 and iPhone X device mockups by [Pixeden](http://pixeden.com). ![analytics](https://ga-beacon.appspot.com/UA-5643664-16/TOStatusBarSimulator/README.md?pixel)
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/TimOliver/TOStatusBarSimulator/badge.svg?style=beer-square)](https://beerpay.io/TimOliver/TOStatusBarSimulator)  [![Beerpay](https://beerpay.io/TimOliver/TOStatusBarSimulator/make-wish.svg?style=flat-square)](https://beerpay.io/TimOliver/TOStatusBarSimulator?focus=wish)
