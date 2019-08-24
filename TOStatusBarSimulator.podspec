@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/TimOliver/TOStatusBarSimulator.git', :tag => s.version }
   s.platform = :ios, '8.0'
   s.source_files = 'TOStatusBarSimulator/**/*.{h,m}'
-  s.resources = "TOStatusBarSimulator/*.xcassets"
+  s.resource_bundle = { 'TOStatusBarSimulator' => 'TOStatusBarSimulator/**/*.xcassets' }
   s.requires_arc = true
 end
